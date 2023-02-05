@@ -5,11 +5,15 @@ class ContainerBox extends StatelessWidget {
   final double height;
   final double width;
   final String text;
+  final double spreadRadius;
+  final double blurrRadius;
   ContainerBox({
     super.key,
     required this.height,
     required this.width,
     required this.text,
+    required this.spreadRadius,
+    required this.blurrRadius,
   });
 
   @override
@@ -23,13 +27,12 @@ class ContainerBox extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5.r,
-            blurRadius: 7.r,
-            offset: Offset(0,3),
+            spreadRadius: spreadRadius.r,
+            blurRadius: blurrRadius.r,
+            offset: Offset(0, 3),
           ),
         ],
       ),
-      
       child: Center(
         child: Text(
           text,

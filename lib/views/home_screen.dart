@@ -26,29 +26,59 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 30,
                   width: MediaQuery.of(context).size.width,
                   text: "",
+                  spreadRadius: 4,
+                  blurrRadius: 5,
                 ),
                 SizedBox(
                   height: 30.h,
                 ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
+                SizedBox(
+                  height: 40.h,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    // physics: NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
                     itemCount: 10,
                     itemBuilder: (context, index) {
-                      return SizedBox(
-                        height: 40.h,
-                        child: ContainerBox(
-                          height: 30,
-                          width: 70,
-                          text: "Container",
-                        ),
+                      return Row(
+                        children: [
+                          ContainerBox(
+                            height: 30,
+                            width: 70,
+                            text: "Container",
+                            spreadRadius: 3,
+                            blurrRadius: 2,
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                        ],
                       );
-                    }),
-                ContainerBox(
-                  height: 30,
-                  width: 70,
-                  text: "Container 1",
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 40.h,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height,
+                  child: GridView.builder(
+                      itemCount: 10,
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        mainAxisSpacing: 10,
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                      ),
+                      itemBuilder: (context, index) {
+                        return ContainerBox(
+                          height: 100,
+                          width: 20,
+                          text: "",
+                          spreadRadius: 2,
+                          blurrRadius: 1,
+                        );
+                      },),
                 ),
               ],
             ),
