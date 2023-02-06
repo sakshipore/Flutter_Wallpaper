@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wallpaper/services/wallpaper_service.dart';
 import 'package:wallpaper/widgets/container_box.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,6 +11,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // final WallpaperService _service = WallpaperService();
+
+  // @override
+  // void initState() {
+  //    _service.fetchWallpaper();
+  //   super.initState();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,22 +72,23 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height,
                   child: GridView.builder(
-                      itemCount: 10,
-                      shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisSpacing: 10,
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                      ),
-                      itemBuilder: (context, index) {
-                        return ContainerBox(
-                          height: 100,
-                          width: 20,
-                          text: "",
-                          spreadRadius: 2,
-                          blurrRadius: 1,
-                        );
-                      },),
+                    itemCount: 10,
+                    shrinkWrap: true,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisSpacing: 10,
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                    ),
+                    itemBuilder: (context, index) {
+                      return ContainerBox(
+                        height: 100,
+                        width: 20,
+                        text: "",
+                        spreadRadius: 2,
+                        blurrRadius: 1,
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
