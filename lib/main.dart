@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wallpaper/routes/router.dart';
+import 'package:wallpaper/routes/routes_names.dart';
 import 'package:wallpaper/views/home_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +18,15 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 840),
       minTextAdapt: true,
       builder: (context, child) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: HomeScreen(),
+          initialRoute: RoutesNames.homeScreen,
+          getPages: AppRoutes.routes,
         );
+        // MaterialApp(
+        //   debugShowCheckedModeBanner: false,
+        //   home: HomeScreen(),
+        // );
       },
     );
   }
