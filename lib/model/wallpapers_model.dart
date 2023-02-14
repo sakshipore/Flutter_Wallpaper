@@ -13,17 +13,23 @@ class Wallpaper {
     required this.nextPage,
   });
 
-  factory Wallpaper.fromJson(Map<String, dynamic> json) => Wallpaper(
+  factory Wallpaper.fromJson(Map<String, dynamic> json) {
+    List<Photo> photo=[];
+    for(var item in json["photos"]) {
+      photo.add(Photo.fromJson(item));
+    }
+    return Wallpaper(
         page: json["page"],
-        perPage: json["perPage"],
-        photos: json["photos"],
-        nextPage: json["nextPage"],
+        perPage: json["per_page"],
+        photos: photo,
+        nextPage: json["next_page"],
       );
+  }
 
   Map<String, dynamic> toJson() => {
         "page": page,
-        "perPage": perPage,
+        "per_page": perPage,
         "photos": photos,
-        "nextPage": nextPage
+        "next_page": nextPage
       };
 }

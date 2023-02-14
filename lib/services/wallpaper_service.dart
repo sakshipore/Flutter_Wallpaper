@@ -14,6 +14,7 @@ class WallpaperService {
         },
       ),
     );
-    log(response.toString());
+    log(response.data.toString());
+    return response.data;
   }
 }

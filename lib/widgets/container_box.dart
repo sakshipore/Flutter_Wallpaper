@@ -4,16 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ContainerBox extends StatelessWidget {
   final double height;
   final double width;
-  final String text;
+  final String? text;
   final double spreadRadius;
   final double blurrRadius;
+  String image;
   ContainerBox({
     super.key,
     required this.height,
     required this.width,
-    required this.text,
+    this.text,
     required this.spreadRadius,
     required this.blurrRadius,
+    this.image = "",
   });
 
   @override
@@ -33,15 +35,12 @@ class ContainerBox extends StatelessWidget {
           ),
         ],
       ),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 14.sp,
-            color: Colors.black54,
-          ),
-        ),
-      ),
+      child: image == ""
+          ? Container()
+          : Image.network(
+              image,
+              fit: BoxFit.cover,
+            ),
     );
   }
 }
