@@ -3,7 +3,7 @@ pipeline{
     stages {
         stage("print main.dart") {
             steps{
-                bat 'type /lib/main.dart'
+                bat 'type lib\main.dart'
             }
         }
     }
