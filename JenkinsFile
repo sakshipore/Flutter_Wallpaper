@@ -1,0 +1,10 @@
+pipeline{
+    agennt any
+    stages {
+        stage("print main.dart") {
+            steps{
+                bat "type lib\main.dart"
+            }
+        }
+    }
+}
